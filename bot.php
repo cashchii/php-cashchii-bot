@@ -19,7 +19,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'loading...'
+				'text' => 'รอคุยต่ออยู่นะ'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -40,7 +40,7 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
-// 			echo $result . "\r\n";
+			echo $result . "\r\n";
 		}
 	}
 }
