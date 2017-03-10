@@ -25,9 +25,11 @@ if (!is_null($events['events'])) {
 						'test', 'Carousel','https://goo.gl/yvjjUI',$actionBuilder);
 				$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($column);
 				$messages = [
-						'type' => 'template',
-						'altText' => 'This is test template',
-						'template' => $carousel
+// 						'type' => 'template',
+// 						'altText' => 'This is test template',
+// 						'template' => $carousel
+						'type' => 'text',
+						'text' => $carousel
 				];
 			} else {
 				$messages = [
