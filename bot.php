@@ -17,10 +17,24 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => 'รอคุยต่ออยู่นะ'
-			];
+			
+			
+			if ($text == 'Carousel'){
+				$actionBuilder = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Label','http://www.google.co.th');
+				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder(
+						'test', 'Carousel','https://goo.gl/yvjjUI',$actionBuilder);
+				$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($column);
+				$messages = [
+						'type' => 'template',
+						'altText' => 'This is test template',
+						'template' => $carousel
+				];
+			} else {
+				$messages = [
+						'type' => 'text',
+						'text' => 'รอคุยต่ออยู่นะ'
+				];
+			}
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
