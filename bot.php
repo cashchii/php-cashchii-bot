@@ -1,4 +1,6 @@
 <?php
+
+require_once __DIR__ . "/vendor/autoload.php";
 $access_token = 'nCXaaQP4IrDgdM2G/gf1fc6eA1eo1R5VL0MiaZyvjEoqZNevPHUHYOvKXNDNCLz5q1IvBMHPFoCId/k0kjR7Gkql411JhfX7IsLueFb3XlI5dvEshaZYIrpKpmsoxt651wSWjwO5rmTRGW4NC/QSkQdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -25,32 +27,32 @@ if (!is_null($events['events'])) {
 						'test', 'Carousel','https://goo.gl/yvjjUI',$actionBuilder);
 				$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($column);
 				$messages = [
-// // 						'type' => 'template',
-// // 						'altText' => 'This is test template',
-// // 						'template' => $carousel
-// 						'type' => 'text',
-// 						'text' => $carousel
 						'type' => 'template',
-						'altText' => 'this is a carousel template',
-						'template' => array('type'=>'carousel', 'columns' => array (array('thumbnailImageUrl' => 'https://goo.gl/yvjjUI',
-										'title' => 'this is menu',
-										'text' => 'description',
-										'actions' =>
-										array (array(
-														'type' => 'postback',
-														'label' => 'Buy',
-														'data' => 'action=buy&itemid=111',
-												),array(
-														'type' => 'postback',
-														'label' => 'Add to cart',
-														'data' => 'action=add&itemid=111',
-												),array(
-														'type' => 'uri',
-														'label' => 'View detail',
-														'uri' => 'http://www.google.co.th',)
-												),
-										)
-								))
+						'altText' => 'This is test template',
+						'template' => $carousel
+// // 						'type' => 'text',
+// // 						'text' => $carousel
+// 						'type' => 'template',
+// 						'altText' => 'this is a carousel template',
+// 						'template' => array('type'=>'carousel', 'columns' => array (array('thumbnailImageUrl' => 'https://goo.gl/yvjjUI',
+// 										'title' => 'this is menu',
+// 										'text' => 'description',
+// 										'actions' =>
+// 										array (array(
+// 														'type' => 'postback',
+// 														'label' => 'Buy',
+// 														'data' => 'action=buy&itemid=111',
+// 												),array(
+// 														'type' => 'postback',
+// 														'label' => 'Add to cart',
+// 														'data' => 'action=add&itemid=111',
+// 												),array(
+// 														'type' => 'uri',
+// 														'label' => 'View detail',
+// 														'uri' => 'http://www.google.co.th',)
+// 												),
+// 										)
+// 								))
 				];
 			} else {
 				$messages = [
