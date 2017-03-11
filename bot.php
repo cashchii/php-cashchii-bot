@@ -30,17 +30,15 @@ if (!is_null($events['events'])) {
 				
 				
 			if ($text == 'Carousel'){
-				$actionBuilder = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Label','http://www.google.co.th');
-				$column[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder(
-						'test', 'Carousel','https://goo.gl/yvjjUI',$actionBuilder);
-				$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($column[0]);
-				$messages = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("test ja", $carousel);
-				$response = $bot->replyMessage($replyToken, $messages);
-// 				$messages = [
-// 						'type' => 'template',
-// 						'altText' => 'This is test template',
-// 						'template' => $carousel
-// 				];
+				$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('Cashchi');
+				$response = $bot->replyMessage($replyToken, $textMessageBuilder);
+// 				$actionBuilder = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Label','http://www.google.co.th');
+// 				$column[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder(
+// 						'test', 'Carousel','https://goo.gl/yvjjUI',$actionBuilder);
+// 				$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($column[0]);
+// 				$messages = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("test ja", $carousel);
+// 				$response = $bot->replyMessage($replyToken, $messages);
+				
 			} else {
 				$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('click');
 				$response = $bot->replyMessage($replyToken, $textMessageBuilder);
