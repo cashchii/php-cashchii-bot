@@ -22,45 +22,20 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
-			$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+			$httpClient = new CurlHTTPClient($access_token);
 			$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 				
-
 			// Build message to reply back
-				
 				
 			if ($text == 'Carousel'){
 				$actionBuilder = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Label','http://www.google.co.th');
-				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder(
+				$column[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder(
 						'test', 'Carousel','https://goo.gl/yvjjUI',$actionBuilder);
-				$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($column);
+				$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($column[0]);
 				$messages = [
 						'type' => 'template',
 						'altText' => 'This is test template',
 						'template' => $carousel
-						// // 						'type' => 'text',
-				// // 						'text' => $carousel
-				// 						'type' => 'template',
-				// 						'altText' => 'this is a carousel template',
-				// 						'template' => array('type'=>'carousel', 'columns' => array (array('thumbnailImageUrl' => 'https://goo.gl/yvjjUI',
-						// 										'title' => 'this is menu',
-						// 										'text' => 'description',
-						// 										'actions' =>
-						// 										array (array(
-								// 														'type' => 'postback',
-								// 														'label' => 'Buy',
-								// 														'data' => 'action=buy&itemid=111',
-								// 												),array(
-										// 														'type' => 'postback',
-										// 														'label' => 'Add to cart',
-										// 														'data' => 'action=add&itemid=111',
-										// 												),array(
-												// 														'type' => 'uri',
-												// 														'label' => 'View detail',
-												// 														'uri' => 'http://www.google.co.th',)
-								// 												),
-								// 										)
-						// 								))
 				];
 			} else {
 				$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('click');
