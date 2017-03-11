@@ -30,7 +30,7 @@ if (!is_null($events['events'])) {
 				
 				
 			if ($text == 'button'){
-				$action = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder	('Button','https://www.google.co.th');
+				$action = array(new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Button','https://www.google.co.th'));
 				$buttonBuilder = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder('TestButton', 'This is a button', 'https://goo.gl/yvjjUI',
 						$action);
 // 				$mes = $buttonBuilder->buildTemplate( );
