@@ -33,9 +33,10 @@ if (!is_null($events['events'])) {
 				$action = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder	('Button','https://www.google.co.th');
 				$buttonBuilder = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder('TestButton', 'This is a button', 'https://goo.gl/yvjjUI',
 						$action);
-				$mes = $buttonBuilder->buildTemplate( );
+// 				$mes = $buttonBuilder->buildTemplate( );
+				$msg = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("ButtonTesttt", $buttonBuilder);
 // 				$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('Cashchi');
-				$response = $bot->replyMessage($replyToken, $buttonBuilder);
+				$response = $bot->replyMessage($replyToken, $msg);
 // 				$actionBuilder = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Label','http://www.google.co.th');
 // 				$column[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder(
 // 						'test', 'Carousel','https://goo.gl/yvjjUI',$actionBuilder);
