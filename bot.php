@@ -29,9 +29,13 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 				
 				
-			if ($text == 'Carousel'){
-				$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('Cashchi');
-				$response = $bot->replyMessage($replyToken, $textMessageBuilder);
+			if ($text == 'button'){
+				$action = new \LINE\LINEBot\TemplateActionBuilder('Button','www.google.co.th');
+				$buttonBuilder = new \LINE\LINEBot\MessageBuilder\TemplateBuilder('TestButton', 'This is a button', 'https://goo.gl/yvjjUI',
+						$action->buildTemplateAction());
+				$mes = $buttonBuilder->buildTemplate();
+// 				$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('Cashchi');
+				$response = $bot->replyMessage($replyToken, $mes);
 // 				$actionBuilder = new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder('Label','http://www.google.co.th');
 // 				$column[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder(
 // 						'test', 'Carousel','https://goo.gl/yvjjUI',$actionBuilder);
