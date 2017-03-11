@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
-			$httpClient = new CurlHTTPClient($access_token);
+			$httpClient = new \CurlHTTPClient($access_token);
 			$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 				
 			// Build message to reply back
