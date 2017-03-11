@@ -34,11 +34,13 @@ if (!is_null($events['events'])) {
 				$column[] = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder(
 						'test', 'Carousel','https://goo.gl/yvjjUI',$actionBuilder);
 				$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($column[0]);
-				$messages = [
-						'type' => 'template',
-						'altText' => 'This is test template',
-						'template' => $carousel
-				];
+				$messages = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("test ja", $carousel);
+				$response = $bot->replyMessage($replyToken, $messages);
+// 				$messages = [
+// 						'type' => 'template',
+// 						'altText' => 'This is test template',
+// 						'template' => $carousel
+// 				];
 			} else {
 				$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('click');
 				$response = $bot->replyMessage($replyToken, $textMessageBuilder);
